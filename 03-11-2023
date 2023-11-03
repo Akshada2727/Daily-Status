@@ -1,0 +1,99 @@
+<mat-card class="mat-card">
+       <mat-card-header>
+         <mat-card-title>{{ cardData.title }}</mat-card-title>
+       </mat-card-header>
+       <mat-card-content>
+         <!-- Replace this with the actual content for your card -->
+         <div *ngIf="cardData.title==='Harry Potter & the half blood prince'" class="card-content">
+           <div class="inone">
+          <div class="text1">
+             <p>Author : Laxmi</p>
+             <p>Category : Novel</p>
+             <p>Publisher : Potter More</p>
+             <p>Date Published : June 26,1997</p>
+             <p>Points : 200</p>
+           </div>
+           <div class="img">
+            <img src="/assets/Picture1.jpg" width="150px" height="160px">
+           </div>
+           </div>
+           <div class="text2">
+             <p>
+               Harry Potter and the Half-Blood Prince is a fantasy novel written by British author J. K. Rowling and the sixth and penultimate novel in the Harry Potter series.
+               Set during Harry Potter's sixth year at Hogwarts, the novel explores the past of the boy wizard's nemesis, Lord Voldemort, and Harry's preparations for the final battle against Voldemort alongside his headmaster and mentor Albus Dumbledore.
+               The book was published in the United Kingdom by Bloomsbury and in the United States by Scholastic on 16 July 2005, as well as in several other countries.
+               It sold almost seven million copies in the first 24 hours after its release,[1] a record eventually broken by its sequel, Harry Potter and the Deathly Hallows.[2] There were many controversies before and after it was published, including the right-to-read copies delivered before the release date in Canada. Reception to the novel was generally positive, and it won several awards and honors, including the 2006 British Book of the Year award.
+             </p>
+           </div>
+           <div class="inone">
+           <a (click)="showSecondCard = !showSecondCard">subscribe</a>
+         </div>
+        </div>
+         <div *ngIf="cardData.title==='Love Story'">
+           <p>This is the content of the card. You can put any text or HTML here.</p>
+         </div>
+       </mat-card-content>
+     </mat-card>
+   
+     <mat-card *ngIf="showSecondCard" class="mat-card" style="background-color: white;color:black;">
+      <mat-card-header>
+        <mat-card-title>Harry Potter and Half-Blood Prince (Subscription Form)</mat-card-title>
+      </mat-card-header>
+       <mat-card-content >
+//css
+.read-less-button {
+    
+    color:red; /* White text color */
+    /* border: none;
+    padding: 8px 12px;
+    cursor: pointer; */
+    margin-left: 20px;
+    font-size: 14px;
+  }
+  
+  /* .read-less-button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+  
+  
+.mat-card {
+    width: 100%;
+    background-color: #001a33;
+    color: azure;
+    margin: 10px 0;
+    font-size: 14px;
+    border: 1px solid #34495e; /* Add a border to the card */
+    border-radius: 5px; /* Add rounded corners */
+    overflow: hidden; /* Hide overflowing content */
+}
+
+.mat-card-title {
+    font-size: 18px;
+    color: #e74c3c; /* Red title color */
+    padding: 10px;
+    background-color: #001a33;
+    margin: -10px -10px 10px; /* Overlap title with card content */
+}
+
+.mat-card-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text1, .text2 {
+    padding: 10px;
+    flex: 1; /* Equal width for both columns */
+}
+
+a {
+    color: #3498db; /* Blue link color */
+    cursor: pointer;
+    text-decoration: underline;
+}
+.inone
+{
+    display:flex;
+}
+a:hover {
+    text-decoration: none; /* Remove underline on hover */
+}
+
