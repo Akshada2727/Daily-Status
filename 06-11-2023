@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12 mb-3">
+        <input type="text" [(ngModel)]="filterText" class="form-control" placeholder="Search for names.." (input)="filteredCards">
+      </div>
+      <div class="col-sm-12 mb-3">
+        <input type="text" [(ngModel)]="categoryFilter" class="form-control" placeholder="Search for category.." (input)="filteredCards">
+      </div>
+      <div class="col-sm-12 mb-3">
+        <input type="text" [(ngModel)]="authorFilter" class="form-control" placeholder="Search for Author.." (input)="filteredCards">
+      </div>
+    </div>
+    <div class="row" id="myItems">
+      <div class="col-sm-12">
+        <div class="card-deck horizontal-cards"> <!-- Add a custom class 'horizontal-cards' -->
+          <div class="card" *ngFor="let card of filteredCards">
+            <div class="card-body">
+              <small>
+                  <p class="card-title"><a href="#">{{ card.title }}</a></p>
+              </small>
+              <div class="card-content">
+                  <img class="card-image" [src]="card.image" alt="{{ card.title }} Image">
+                  <div class="card-text-wrapper">
+                      <p class="card-text">{{ card.text }}</p>
+                      <a [routerLink]="['/layout/subscribe', card.title]" class="card-link" style="font-size: 20px;">Subscribe now</a>
+                      <a [routerLink]="['/layout/preview', card.title]" class="card-link" style="font-size: 20px;">Preview</a>
+                  </div>
+              </div>
+          </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
