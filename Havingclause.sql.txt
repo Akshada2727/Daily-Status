@@ -1,0 +1,162 @@
+CREATE TABLE student1(
+rollno INT PRIMARY KEY,
+name VARCHAR(20),
+marks INT NOT NULL,
+grade VARCHAR(1),
+city VARCHAR(20)
+);
+
+
+INSERT INTO student1
+(rollno,name,marks,grade,city)
+VALUES
+(11,"abhi", 78 , "A", "Pune"),
+(12,"anita", 70 , "B", "Mumbai"),
+(13,"swapnali", 80 , "A", "Thane"),
+(14,"pooja", 51 , "C", "Delhi"),
+(15,"anuja", 12 , "F", "Pune");
+
+SELECT city,COUNT(name)
+FROM student1
+GROUP BY city
+HAVING MAX(marks) > 70
+ORDER BY city DESC;
+
+
+SELECT city
+FROM student1
+WHERE grade = "A"
+GROUP BY city
+HAVING MAX(marks) > 70;
+
+
+/*                                       UPDATE QUERY                                        */
+
+SET SQL_SAFE_UPDATES = 0;
+
+
+UPDATE student1
+SET grade = "O"
+WHERE grade = "A";
+
+UPDATE student1
+SET marks = "60"
+WHERE name  = "pooja";
+
+UPDATE student1
+SET grade = "F"
+WHERE marks BETWEEN 10 AND 50;
+
+UPDATE student1
+SET marks = marks + 1;
+
+
+SELECT * FROM student1;
+
+
+/*                                       DELETE QUERY                                        
+
+
+
+DELETE FROM studen1
+WHERE marks < 33
+
+
+*/
+
+/*                                  REVISITING PRIMARY KEY                                   */
+
+
+CREATE TABLE dept(
+id Int PRIMARY KEY,
+name VARCHAR(20)
+);
+
+INSERT INTO dept
+VALUES
+(101, "english"),
+(102, "IT");
+
+SELECT * FROM dept;
+
+/*
+                                            WITHOUT CASCADING
+CREATE TABLE teacher(
+id INT PRIMARY KEY,
+name VARCHAR(20),
+dept_id INT,
+FOREIGN KEY(dept_id) REFERENCES dept(id)
+);
+
+INSERT INTO teacher
+VALUES
+(101, "Adam", 101),
+(102, "bob", 102);
+
+SELECT * FROM teacher;
+*/
+
+DROP TABLE teacher;
+
+CREATE TABLE teacher(
+id INT PRIMARY KEY,
+name VARCHAR(20),
+dept_id INT,
+FOREIGN KEY(dept_id) REFERENCES dept(id)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+);
+
+
+INSERT INTO teacher
+VALUES
+(101, "Adam", 101),
+(102, "bob", 102);
+
+SELECT * FROM teacher;
+
+UPDATE dept
+SET id = 103
+WHERE  id = 102;
+
+
+/*                                       TABLE RELATED QUERIES                                    
+
+Alter ( To change the schema)
+ADD  Column
+DROP Column
+RENAME Column
+*/
+
+CREATE TABLE emp1(
+id Int PRIMARY KEY,
+name VARCHAR(20),
+salary INT
+);
+
+INSERT INTO emp1 VALUES(12,"sai",2500);
+INSERT INTO emp1 VALUES(13,"ovi",30000);
+INSERT INTO emp1 VALUES(14,"pari",4000); 
+
+SELECT * FROM emp1;
+
+/* ADD COLUMN*/
+ALTER TABLE emp1
+ADD COLUMN city VARCHAR(20);
+
+/* DROP COLUMN*/
+ALTER TABLE emp1
+DROP COLUMN  city;
+
+/* RENAME COLUMN
+
+ALTER TABLE emp1
+RENAME TO organization;
+
+SELECT * FROM organization;     */
+
+ALTER TABLE organization
+RENAME TO emp1;
+
+SELECT * FROM emp1; 
+
