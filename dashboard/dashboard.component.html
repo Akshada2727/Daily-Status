@@ -1,0 +1,68 @@
+<!-- <div class="card" *ngFor="let card of cards" [class.clickable]="card.clickable" (click)="navigateToPage(card.route)">
+<mat-card>
+    <mat-card-header>
+    <mat-card-title>{{card.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>{{card.content}}</mat-card-content>
+</mat-card>
+</div> -->
+ <div class="card-container">
+    <div class="row">
+      <mat-card *ngFor="let card of cards.slice(0, 3)" [class.clickable]="card.clickable" (click)="navigateToPage(card.route)">
+        <mat-card-header>
+          <mat-card-title style="margin-left:25px;">{{ card.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="display:flex;font-size:20px;">
+            <div class="inone" >
+            {{ card.content }}
+             <div class="oval-container">
+              <!-- <div class="oval-value" >{{ card.value}}</div>
+              <div class="oval-value" *ngIf="card.title === 'Total Points'">{{ card.totalScore }}</div> -->
+              <!-- <div class="oval-value" *ngIf="card.title === 'Total Points'">{{ card.value }}</div>
+            </div> -->
+            <div class="oval-value" *ngIf="card.title === 'Total Points'">{{ card.value }}</div>
+            <div class="oval-value" *ngIf="card.title !== 'Total Points'">{{ card.value }}</div>
+          </div>
+            </div> 
+        </mat-card-content>
+</mat-card></div>
+
+
+    <div class="row">
+      <mat-card *ngFor="let card of cards.slice(3)" [class.clickable]="card.clickable" (click)="navigateToPage(card.route)">
+        <mat-card-header>
+          <mat-card-title>{{ card.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>{{ card.content }}</mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+   
+
+   <!-- <div class="card-container">
+    <div class="row">
+      <mat-card *ngFor="let card of cards.slice(0, 3)" [class.clickable]="card.clickable" (click)="navigateToPage(card.route)">
+        <mat-card-header>
+          <mat-card-title style="margin-left:25px;">{{ card.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="inone">
+            {{ card.content }}
+            <div class="oval-container">
+              <div class="oval-value" *ngIf="card.title === 'Total Points'">{{ card.totalScore }}</div>
+              <div class="oval-value" *ngIf="card.title !== 'Total Points'">{{ card.value }}</div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="row">
+      <mat-card *ngFor="let card of cards.slice(3)" [class.clickable]="card.clickable" (click)="navigateToPage(card.route)">
+        <mat-card-header>
+          <mat-card-title>{{ card.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>{{ card.content }}</mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+   -->

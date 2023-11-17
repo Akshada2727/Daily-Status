@@ -1,0 +1,63 @@
+/* Your CSS styles here */
+
+/*  */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: nowrap; /* Cards in the same row are displayed side by side */
+    gap: 16px; /* Adjust the spacing between cards in a row */
+    padding: 16px; /* Add padding for each row */
+  }
+  
+  /* Style the clickable cards */
+  .mat-card.clickable {
+    cursor: pointer;
+  }
+  
+  /* Style the cards, adjust as needed */
+  .mat-card {
+    max-width: 300px; /* Set the maximum width for the cards */
+    max-height: 300px;
+    color: black;
+    box-sizing: border-box;
+    border: 9px solid black; /* Add a border for the cards */
+    border-radius: 30px;
+    font-size: small;
+    
+  }
+  .inone
+  {
+    font-size: 20px;
+    display: flex;
+    padding: 20px;
+  }
+  /* Style the cards on hover */
+  .mat-card.clickable:hover {
+    background-color: #f0f0f0;
+  }
+  .oval-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* Background of the oval set to white */
+    border-radius: 50%;
+    width: 120px; /* Adjust the width of the oval container */
+    height: 80px; /* Adjust the height of the oval container */
+    margin: 0 auto 10px; /* Margin to separate the oval from card content */
+    border: 8px solid #ff5733; /* Broad border with variable color (e.g., orange) */
+    
+  }
+  
+  /* Style the oval value text */
+  .oval-value {
+    color:black; /* Variable color (e.g., orange) for the text */
+    font-size: 1.5rem; /* Adjust the font size */
+  }
+
+  
